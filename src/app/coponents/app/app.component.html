@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+  <select [formControl] = "post">
+    <option *ngFor="let post of posts" [value]="post.id">post {{post.id}}</option>
+  </select>
+  <button (click)="find(form)">Find Post</button>
+</form>
+<app-post [post]="postById" *ngIf="postById"></app-post>
+
+<hr>
+
+<form [formGroup]="formComments">
+  <select [formControl]="comment">
+    <option *ngFor="let comment of comments" [value]="comment.id">comment {{comment.id}}</option>
+  </select>
+  <button (click)="findComment(formComments)">Find Comment</button>
+</form>
+<app-comment [comment]="commentById" *ngIf="commentById"></app-comment>
